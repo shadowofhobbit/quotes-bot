@@ -14,7 +14,7 @@ public class UpdatesController {
     }
 
     @PostMapping
-    void handleUpdates(Updates updates) {
-        telegramService.handleUpdates(updates);
+    void handleUpdates(Update update) {
+        telegramService.handleUpdate(update);
     }
 }

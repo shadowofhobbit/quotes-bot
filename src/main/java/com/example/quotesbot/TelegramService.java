@@ -88,34 +88,35 @@ public class TelegramService {
     private void parseUpdate(String x) {
         try {
             var updates = mapper.readValue(x, Updates.class);
-            handleUpdates(updates);
+            var result = updates.getResult();
+            if (result.length > 0) {
+                var lastUpdate = result[result.length - 1];
+                offset = lastUpdate.getUpdateId() + 1;
+                handleMessages(result);
+            }
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
     }
 
-    void handleUpdates(Updates updates) {
-        var result = updates.getResult();
-        if (result.length > 0) {
-            var lastUpdate = result[result.length - 1];
-            offset = lastUpdate.getUpdateId() + 1;
-            handleMessages(result);
-        }
-    }
 
     private void handleMessages(Update[] updates) {
         for (Update update: updates) {
-            var receivedText = update.getMessage().getText();
-            var chatId = update.getMessage().getChat().getId();
-            if (receivedText.equals("/quote")) {
-                var quote = quotesRepository.getQuote();
-                sendMessage(chatId, quote);
-            } else if (receivedText.equals("/start")) {
-                var greeting = "Hi!";
-                sendMessage(chatId, greeting);
-            } else {
-                sendMessage(chatId, ":-)");
-            }
+            handleUpdate(update);
+        }
+    }
+
+    void handleUpdate(Update update) {
+        var receivedText = update.getMessage().getText();
+        var chatId = update.getMessage().getChat().getId();
+        if (receivedText.equals("/quote")) {
+            var quote = quotesRepository.getQuote();
+            sendMessage(chatId, quote);
+        } else if (receivedText.equals("/start")) {
+            var greeting = "Hi!";
+            sendMessage(chatId, greeting);
+        } else {
+            sendMessage(chatId, ":-)");
         }
     }
 
