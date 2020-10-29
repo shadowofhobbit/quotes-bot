@@ -1,4 +1,4 @@
-package com.example.quotesbot;
+package com.example.quotesbot.telegram;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

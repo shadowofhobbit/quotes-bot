@@ -1,4 +1,4 @@
-package com.example.quotesbot;
+package com.example.quotesbot.quotes;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
