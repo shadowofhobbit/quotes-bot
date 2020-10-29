@@ -24,7 +24,7 @@ public class TelegramService {
     private final QuotesRepository quotesRepository;
     private static final String API_BASE_URL = "https://api.telegram.org/bot";
     @Value("${host}")
-    private String path;
+    private String host;
     public static final String GREETING = "Hi!";
 
     @Autowired
@@ -36,7 +36,7 @@ public class TelegramService {
     public void addWebhook() {
         var httpClient = HttpClient.newHttpClient();
         var uri = URI.create(API_BASE_URL + token
-                + "/setWebhook?allowed_updates=message&url=" + path);
+                + "/setWebhook?allowed_updates=message&url=" + host + "/updates");
         var request = HttpRequest.newBuilder()
                 .GET()
                 .uri(uri)
@@ -57,7 +57,8 @@ public class TelegramService {
         var chatId = update.getMessage().getChat().getId();
         if (receivedText.equals(QUOTE_COMMAND)) {
             var quote = quotesRepository.getQuote();
-            sendMessage(chatId, quote);
+            var quoteText = quote.getContent() + " (" + quote.getSource() + ")";
+            sendMessage(chatId, quoteText);
         } else if (receivedText.equals(START_COMMAND)) {
             sendMessage(chatId, GREETING);
         } else {
