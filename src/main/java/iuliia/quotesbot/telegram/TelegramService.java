@@ -1,6 +1,6 @@
-package com.example.quotesbot.telegram;
+package iuliia.quotesbot.telegram;
 
-import com.example.quotesbot.quotes.QuotesService;
+import iuliia.quotesbot.quotes.QuotesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

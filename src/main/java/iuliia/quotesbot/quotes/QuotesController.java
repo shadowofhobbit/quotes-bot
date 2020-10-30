@@ -1,4 +1,4 @@
-package com.example.quotesbot.quotes;
+package iuliia.quotesbot.quotes;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

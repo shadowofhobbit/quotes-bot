@@ -1,4 +1,4 @@
-package com.example.quotesbot.quotes;
+package iuliia.quotesbot.quotes;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -11,7 +11,7 @@ import java.util.Random;
 @Service
 @RequiredArgsConstructor
 public class QuotesService {
-    private final DBQuotesRepository repository;
+    private final QuotesRepository repository;
 
     Quote addQuote(Quote quote) {
         return repository.save(quote);

@@ -8,11 +8,11 @@
         <version>2.3.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>iuliia</groupId>
     <artifactId>quotesbot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>QuotesBot</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Quotes bot for Telegram</description>
 
     <properties>
         <java.version>11</java.version>

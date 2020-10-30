@@ -1,4 +1,4 @@
-package com.example.quotesbot.telegram;
+package iuliia.quotesbot.telegram;
 
 import lombok.Getter;
 import lombok.Setter;
