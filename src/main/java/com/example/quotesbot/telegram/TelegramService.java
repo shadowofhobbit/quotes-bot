@@ -56,11 +56,11 @@ public class TelegramService {
     void handleUpdate(Update update) {
         var receivedText = update.getMessage().getText();
         var chatId = update.getMessage().getChat().getId();
-        if (receivedText.equals(QUOTE_COMMAND)) {
+        if (QUOTE_COMMAND.equals(receivedText)) {
             var quote = quotesService.getRandomQuote();
             var quoteText = quote.getContent() + " (" + quote.getSource() + ")";
             sendMessage(chatId, quoteText);
-        } else if (receivedText.equals(START_COMMAND)) {
+        } else if (START_COMMAND.equals(receivedText)) {
             sendMessage(chatId, GREETING);
         } else {
             sendMessage(chatId, DEFAULT_ANSWER);
