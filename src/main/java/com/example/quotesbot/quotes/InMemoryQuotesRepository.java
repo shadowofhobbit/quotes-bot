@@ -29,7 +29,7 @@ public class InMemoryQuotesRepository implements QuotesRepository {
     }
 
     @Override
-    public Quote add(Quote quote) {
+    public Quote save(Quote quote) {
         quotes.add(quote);
         return quote;
     }
