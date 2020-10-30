@@ -4,5 +4,5 @@ public interface QuotesRepository {
 
     Quote getQuote();
 
-    Quote add(Quote quote);
+    Quote save(Quote quote);
 }
