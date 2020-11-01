@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Getter
 @Setter
@@ -16,7 +17,9 @@ public class Quote {
     @Id
     @GeneratedValue
     private long id;
+    @NotEmpty
     private String content;
+    @NotEmpty
     private String source;
 
 }

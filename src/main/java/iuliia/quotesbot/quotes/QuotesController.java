@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/quotes")
 @RequiredArgsConstructor
@@ -12,7 +14,7 @@ public class QuotesController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    Quote addQuote(@RequestBody Quote quote) {
+    Quote addQuote(@RequestBody @Valid Quote quote) {
         return quotesService.addQuote(quote);
     }
 
