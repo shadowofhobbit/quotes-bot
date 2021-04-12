@@ -1,6 +1,6 @@
 # quotes-bot
 
-A simple Telegram bot that responds to /quote command with a random quote.
+A simple Telegram bot using a webhook that responds to /quote command with a random quote.
 
 Available at https://t.me/test_quotes_bot.
 
